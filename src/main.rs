@@ -27,8 +27,8 @@ fn main() {
         let file_name = file.file_name().unwrap().to_string_lossy().to_string();
         let old_path = file.parent().unwrap().to_string_lossy().to_string();
 
-        let new_path = format!("{}\\{}", &old_path, &extension);
-        let new_file = format!("{}\\{}", &new_path, &file_name);
+        let new_path = format!("{}/{}", &old_path, &extension);
+        let new_file = format!("{}/{}", &new_path, &file_name);
 
         fs::create_dir(&new_path).unwrap_or_else(|err| {
             match err.kind() {
